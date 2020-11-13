@@ -24,12 +24,6 @@ const Layout: React.FC<RouteComponentProps> = (props) => {
     const [, setCategories] = useRecoilState(categoriesState);
     const totalWalletsBalance = useRecoilValue(totalWalletsBalanceState);
     const [isLoading, setIsLoading] = React.useState(true);
-    const categoryMenuHandler = () => {
-        props.history.push("/category/setting");
-    };
-    const walletMenuHandler = () => {
-        props.history.push("/wallet/setting");
-    };
 
     const renderBurgerMenuContent = (wallets: Wallet[]) => {
         return (
@@ -62,17 +56,52 @@ const Layout: React.FC<RouteComponentProps> = (props) => {
                             </div>
                         </li>
                     </ul>
-                    <p className="menu-label">Setting</p>
+                    <ul className="menu-label">Directory</ul>
                     <ul className="menu-list">
                         <li>
                             <ul>
                                 <li>
-                                    <a onClick={categoryMenuHandler}>
+                                    <a onClick={() => props.history.push("/")}>
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        onClick={() =>
+                                            props.history.push("/more")
+                                        }
+                                    >
+                                        More
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul className="menu-label">Setting</ul>
+                    <ul className="menu-list">
+                        <li>
+                            <ul>
+                                <li>
+                                    <a
+                                        onClick={() =>
+                                            props.history.push(
+                                                "/category/setting"
+                                            )
+                                        }
+                                    >
                                         Category
                                     </a>
                                 </li>
                                 <li>
-                                    <a onClick={walletMenuHandler}>Wallet</a>
+                                    <a
+                                        onClick={() =>
+                                            props.history.push(
+                                                "/wallet/setting"
+                                            )
+                                        }
+                                    >
+                                        Wallet
+                                    </a>
                                 </li>
                             </ul>
                         </li>

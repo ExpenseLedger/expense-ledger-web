@@ -45,11 +45,11 @@ const More: React.FC<RouteComponentProps> = (props) => {
     const [, setNotificationList] = useRecoilState(toastState);
     const [isLoading, setIsLoading] = React.useState(false);
     const [currentValue, setCurrentValue] = React.useState<CurrentValue>({
-        fromWalletIdx: (props.location.state as any).walletIdx ?? 0,
-        toWalletIdx: (props.location.state as any).walletIdx ?? 0,
-        categoryIdx: (props.location.state as any).categoryIdx ?? 0,
-        amount: (props.location.state as any).amount ?? 0,
-        date: (props.location.state as any).date ?? Date.now.toString(),
+        fromWalletIdx: (props.location.state as any)?.walletIdx ?? 0,
+        toWalletIdx: (props.location.state as any)?.walletIdx ?? 0,
+        categoryIdx: (props.location.state as any)?.categoryIdx ?? 0,
+        amount: (props.location.state as any)?.amount ?? 0,
+        date: (props.location.state as any)?.date ?? Date.now.toString(),
         description: "",
     });
     const [
